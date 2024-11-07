@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap');
+
+:root {
+    font-size: 10px;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+article {
+    margin-inline: auto;
+    width: min(70rem, 100%);
+
+    height: 100%;
+    min-height: 100svh;
+
+    display: grid;
+    align-items: center;
+    
+    position: relative;
+}
+
+article::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    
+    clip-path: polygon(0 0, 90% 0, 65% 100%, 0 100%);
+    background: linear-gradient(to bottom, brown 25%, #ef4137);
+    
+    z-index: -1;
+}
+
+header {
+    padding: 10rem 2rem;
+    background-image: url("./img/leaf.png");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 27rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 0.7rem;
+}
+nav a {
+    padding: 7px;
+
+    color: #1a1a1a;
+    transition:
+        color 0.2s,
+        box-shadow 0.2s,
+        background-color 0.2s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+}
+nav a:is(:hover, :focus-visible) {
+    color: #fff;
+    background-color: #ad2121;
+    box-shadow: -5px 0 3px 0 #0000004a;
+}
+nav svg {
+    width: 3rem;
+    aspect-ratio: 1;    
+}
+
+h1 {
+    font-size: 5rem;
+    color: #1a1a1a;
+}
+h2 {
+    margin-left: -15%;
+    font-size: 2.3rem;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+h3 {
+    padding: 2rem 3rem;
+    font-size: 2.3rem;
+    font-weight: 400;
+    color: #fff;
+
+    background: linear-gradient(to right, #231f20, transparent 80%);
+}
+
+main {
+    position: relative;
+}
+
+ul {
+    margin-block: 4rem;
+    margin-left: 3.5rem;
+}
+ul li {
+    font-size: 2.3rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    
+}
+
+picture {
+    position: absolute;
+    inset: 0;
+
+    box-shadow: 3px 1px 7px 0px #555;
+    border-radius: 5px;
+    overflow: hidden;
+
+    z-index: -1;
+}
+
+picture img {
+    margin-left: auto;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* Always Free Coffee element */
+.stamp {
+    position: absolute;
+    right: 6%; bottom: 1rem;
+
+    width: 12rem;
+    aspect-ratio: 1;
+
+    background-image: url("./img/circle.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.stamp::before,
+.stamp::after {
+    content: "";
+    
+    position: absolute;
+    right: 60%; bottom: 1rem;
+
+    width: 9rem;
+    aspect-ratio: 1;
+
+    background-image: url("./img/leaf.png");
+    background-position: center;
+    background-size: cover;
+
+    mix-blend-mode: plus-lighter;
+}
+
+.stamp::after {
+    right: -30%;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1)
+}
+
+.stamp span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 0.5rem;
+
+    rotate: -25deg;
+}
+
+
+
+footer {
+    padding: 2rem 3rem;
+    background: linear-gradient(to right, #231f20, transparent 65%);
+
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+footer::after {
+    content: "free wifi";
+    
+    position: absolute;
+    top: 0; right: 5%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #ef4137;
+}
+
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+footer > a {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+footer .links {
+    display: flex;
+}
+footer .links * {
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 300;
+    color: #fff;
+}
+footer .links span {
+    margin-inline: 0.5rem;
+}
+
+
+@media (max-width: 650px) {
+    :root {
+        font-size: 8px;
+    }
+}
+@media (max-width: 500px) {
+    article {
+        margin-inline: unset;
+        width: 95%;
+
+        background-image: url("./img/leaf.png");
+        background-position: 2rem 2rem;
+        background-repeat: no-repeat;
+        background-size: 35rem;
+    }
+    header {
+        padding: 2rem;
+        background-image: none;
+    }
+    h1 {
+        font-size: 3.7rem;
+        font-weight: 400;
+    }
+    h2 {
+        margin-left: unset;
+        text-align: left;
+    }
+    footer .links {
+        flex-direction: column;
+    }
+    footer .links span {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    h3 {
+        color: #ccc;
+    }
+    ul li {
+        font-size: 2.1rem;
+    }
+}
+@media (max-width: 400px) {
+    :root {
+        font-size: 7px;
+    }
+}
